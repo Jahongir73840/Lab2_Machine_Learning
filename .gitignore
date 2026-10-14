@@ -1,0 +1,9 @@
+.venv/
+.uv-cache/
+.jupyter/
+.ipython/
+.mplconfig/
+__pycache__/
+.ipynb_checkpoints/
+tmp/
+Lab2_Submission.zip
