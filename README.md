@@ -1,59 +1,62 @@
-# Лабораторная работа 2
+# Lab 2: A Neural Network from Scratch
 
-Решение по заданию «A neural network from scratch». Основная работа написана
-на английском, как методичка. Код состоит из простых функций на NumPy.
+Solution for the lab assignment "A neural network from scratch".
+The notebook follows the lab manual and uses simple NumPy functions.
 
-## Что открыть
+## Files to open
 
-- **Lab2_Neural_Network.ipynb** — основной файл: объяснения, формулы, код,
-  сохранённые результаты и графики. Открывается в Jupyter, VS Code или Colab.
-- **Lab2_Neural_Network.html** — версия для просмотра в браузере без запуска Python.
-- **lab2.py** — тот же код и пояснения в обычном Python-файле.
-- **results/** — график, проверка градиентов, точность и замеры времени.
+- **Lab2_Neural_Network.ipynb** - the main file with explanations, formulas,
+  code, saved results, and plots. Open it in Jupyter, VS Code, or Colab.
+- **Lab2_Neural_Network.html** - a browser version that does not require running Python.
+- **lab2.py** - the same code and explanations in a regular Python file.
+- **results/** - loss curves, gradient checks, accuracy results, and timings.
 
-Ноутбук уже выполнен. В нём есть все семь пунктов задания, включая размеры
-матриц и вывод градиентов по правилу цепочки. В методичке схема сети и вывод
-производных указаны как работа на бумаге: их можно переписать из разделов 2 и 4.
+The notebook has already been executed. It covers all seven parts of the
+assignment, including matrix shapes and gradient derivation using the chain
+rule. The manual asks for the network design and derivatives on paper;
+sections 2 and 4 of the notebook can be used as a reference.
 
-## Результаты этого запуска
+## Results from this run
 
-- Разбиение: 1257 обучающих и 540 тестовых примеров, стратификация, seed 42.
-- Проверка градиентов: 9/10 для W=16 и 10/10 для W=64. Требование — минимум 9/10.
-- Все 6 комбинаций обучены по 50 эпох, размер мини-батча 32.
-- Лучшая наблюдаемая точность на тесте: **90,74%**, W=64, learning rate=0.1.
-- При скоростях 0.001 и 0.01 точность около 10%: за 50 эпох обучение почти
-  не продвинулось. Эти результаты сохранены и объяснены в выводах.
+- Dataset split: 1,257 training and 540 test examples, stratified, with seed 42.
+- Gradient check: 9/10 passed for W=16 and 10/10 for W=64. At least 9/10 are required.
+- All 6 combinations were trained for 50 epochs with a mini-batch size of 32.
+- Best observed test accuracy: **90.74%**, with W=64 and learning rate=0.1.
+- With learning rates of 0.001 and 0.01, accuracy stayed around 10%: the model
+  made little progress in 50 epochs. These results are saved and discussed
+  in the conclusion.
 
-Запись N(0, 0.01) из методички трактуется как среднее 0 и стандартное
-отклонение 0.01: `rng.normal(0, 0.01, ...)`. Это явно указано в ноутбуке.
+The manual's N(0, 0.01) notation is interpreted as a mean of 0 and a standard
+deviation of 0.01: `rng.normal(0, 0.01, ...)`. This is stated in the notebook.
 
-## Как запустить заново
+## How to run
 
-Для обычного Python-окружения установи зависимости:
+Install the dependencies in your Python environment, then run the script:
 
 ```powershell
 python -m pip install -r requirements.txt
 python lab2.py
 ```
 
-В этой папке уже подготовлено локальное окружение. На текущем компьютере:
+A local environment has already been prepared on the original computer.
+On that computer, the script can also be run with:
 
 ```powershell
 .\.venv\Scripts\python.exe lab2.py
 ```
 
-Для ноутбука выбери это окружение как Python kernel и выполни **Run All**.
-Если используешь Colab, загрузи файл `.ipynb` и выполни все ячейки.
-При повторном запуске результаты в `results/` перезаписываются.
-Замеры времени будут немного отличаться от сохранённых.
+For the notebook, select the environment as the Python kernel and choose
+**Run All**. In Colab, upload the `.ipynb` file and run all cells.
+Running the code again overwrites the files in `results/`.
+Timing measurements may differ slightly from the saved values.
 
-## Файлы с результатами
+## Result files
 
-- `loss_curves.png` — кривые обучающего loss для всех 6 комбинаций.
-- `gradient_check.csv` — численный и аналитический градиенты, относительная ошибка.
-- `metrics.csv` — итоговые loss и accuracy, полное время обучения с логированием.
-- `epoch_log.csv` — loss и accuracy на обучающей выборке после каждой эпохи.
-- `timing.csv` — медианное время forward и backward по 100 измерениям.
-- `timing_samples.csv` — сами измерения времени.
+- `loss_curves.png` - training loss curves for all 6 combinations.
+- `gradient_check.csv` - numerical and analytical gradients, with relative errors.
+- `metrics.csv` - final loss and accuracy, plus total training time including logging.
+- `epoch_log.csv` - training loss and accuracy after each epoch.
+- `timing.csv` - median forward and backward pass times over 100 measurements.
+- `timing_samples.csv` - the individual timing measurements.
 
-Файлы CSV можно открыть как обычный текст или импортировать в Excel.
+CSV files can be opened as plain text or imported into Excel.
